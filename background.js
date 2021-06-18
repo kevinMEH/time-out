@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.sync.set( {"enabled": true } )
     chrome.storage.sync.set( {"blockedList": [] } );
-    chrome.storage.sync.set( {"title": "Get back to work, \ndumbass."} );
+    chrome.storage.sync.set( {"title": "Time out!"} );
     chrome.storage.sync.set( {"originalUrl": "blocked.html"} );
     // Photo by Elizeu Dias on Unsplash
     chrome.storage.sync.set( {"backgroundImageUrl": "https://images.unsplash.com/photo-1519046904884-53103b34b206?&w=1920&q=100"} );
