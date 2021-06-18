@@ -1,0 +1,32 @@
+pre {
+    color: white;
+    display: block;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 800;
+    font-size: 96px;
+    margin-block-start: 0.2em;
+    margin-block-end: 0.2em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10%;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    border:none;
+    border:solid 2.7px white;
+    border-radius: 8px;
+    background: rgba(168, 166, 166, 0);
+    font-family: 'Mulish', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
