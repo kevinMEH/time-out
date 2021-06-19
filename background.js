@@ -25,10 +25,7 @@ function updateVariables() {
     })
 }
 
-// You can't do shit with Manifest v3 without using the overtly confusing declarativeNetRequest API
-// which doesn't even have the same functions as webRequest
-// If anyone wants to help, you can start a new branch and migrate to v3 becuase I'm not dealing
-// with Chrome's fucking bullshit.
+// TODO: Migrate to manifest v3 and use the declarativeNetRequest API
 chrome.webRequest.onBeforeRequest.addListener((details) => {
     console.log("New request detected")
     console.log("Request URL: " + details.url);
@@ -36,11 +33,9 @@ chrome.webRequest.onBeforeRequest.addListener((details) => {
         for(let blockedUrl of blockedList) {
             if(details.url.includes(blockedUrl)) {
                 console.log("Match detected, redirecting");
-                chrome.storage.sync.set( {"originalUrl": details.url}, () => {
-                    chrome.runtime.sendMessage("updateOriginalUrl");
-                });
+                chrome.storage.sync.set( {"originalUrl": details.url} );
                 return {
-                    redirectUrl: chrome.runtime.getURL("blocked.html")
+                    redirectUrl: chrome.runtime.getURL("html/blocked.html")
                 };
             }
         }

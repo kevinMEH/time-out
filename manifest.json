@@ -6,7 +6,7 @@
     "background": {
         "service_worker": "background.js"
     },
-    "options_page": "options.html",
+    "options_page": "html/options.html",
     "permissions": [
         "storage",
         "activeTab",
@@ -16,9 +16,9 @@
         "<all_urls>"
     ],
     "web_accessible_resources": [
-        "blocked.html"
+        "html/blocked.html"
     ],
     "page_action": {
-        "default_popup": "popup.html"
+        "default_popup": "html/popup.html"
     }
 }

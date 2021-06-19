@@ -23,10 +23,6 @@ chrome.storage.sync.get("title", (result) => {
 // Unblock button redirect
 let unblockButton = document.getElementById("unblockButton");
 updateOriginalUrl();
-chrome.runtime.onMessage.addListener(function update(message) {
-    updateOriginalUrl();
-    chrome.runtime.onMessage.removeListener(update);
-})
 function updateOriginalUrl() {
     chrome.storage.sync.get("originalUrl", (result) => {
         console.log("Unblock button URL set to: " + result.originalUrl);

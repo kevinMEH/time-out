@@ -4,7 +4,7 @@ updateSiteList();
 // Preview blocked screen
 let previewButton = document.getElementById("previewButton");
 previewButton.addEventListener("click", () => {
-    location.href = "blocked.html";
+    location.href = "../html/blocked.html";
 })
 
 // Custom image
