@@ -53,6 +53,13 @@ function updateSiteList() {
             let paragraph = document.createElement("p");
             paragraph.id = "blockedSite";
             paragraph.appendChild(document.createTextNode(site));
+            // Remove button
+            let button = document.createElement("button");
+            button.id = "blockedSite";
+            button.textContent = "Remove";
+            button.addEventListener("click", () => removeSite(site))
+            
+            paragraph.appendChild(button);
             blockedSiteList.appendChild(paragraph);
         }
     });
@@ -73,7 +80,6 @@ async function addSite(site) {
                 chrome.runtime.sendMessage("updateVariables");
             });
         });
-        
     }
 }
 
@@ -81,8 +87,10 @@ function removeSite(site) {
     chrome.storage.sync.get("blockedList", function(result) {
         let blockedList = result.blockedList;
         blockedList.splice(blockedList.indexOf(site), 1);
-        chrome.storage.sync.set( { "blockedList": blockedList } );
-        console.log("Removed " + site + " from blockedList.");
-        chrome.runtime.sendMessage("updateVariables");
+        chrome.storage.sync.set( { "blockedList": blockedList }, () => {
+            console.log("Removed " + site + " from blockedList.");
+            updateSiteList();
+            chrome.runtime.sendMessage("updateVariables");
+        });
     })
 }
