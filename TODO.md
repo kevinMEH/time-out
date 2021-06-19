@@ -1,8 +1,7 @@
 TODO:
-- Make UI prettier
+- Make UI prettier on options and popup
 - Add timer and schedule Monday to Sunday
-- Organize to folders
-- Manage permissions better
-- README
-- Make list of alternative
+- Check if all permissions are needed
+- Add the ability for the user to set a list of alternative links on the block page
 - Add remove links button
+- Migrate to v3
