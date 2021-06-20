@@ -3,5 +3,4 @@ TODO:
 - Add timer and schedule Monday to Sunday
 - Check if all permissions are needed
 - Add the ability for the user to set a list of alternative links on the block page
-- Add remove links button
 - Migrate to v3
