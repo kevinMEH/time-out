@@ -4,8 +4,21 @@ pre {
     font-family: 'Mulish', sans-serif;
     font-weight: 800;
     font-size: 96px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+p {
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
     margin-block-start: 0.2em;
-    margin-block-end: 0.2em;
+    margin-block-end: 0.5em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
@@ -18,6 +31,7 @@ pre {
 }
 
 button {
+    margin-top: 0.8em;
     width: 150px;
     height: 50px;
     border:none;

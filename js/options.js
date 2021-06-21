@@ -78,6 +78,7 @@ function updateLinkList() {
             });
             
             link.appendChild(button);
+            link.appendChild(document.createElement("br"));
             alternativeLinksList.appendChild(link);
         }
         console.log("Updated Link List");
