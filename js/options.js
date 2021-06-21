@@ -8,13 +8,21 @@ previewButton.addEventListener("click", () => {
     location.href = "../html/blocked.html";
 })
 
+// Custom title
+let customTitle = document.getElementById("customTitle");
+let submitCustomTitle = document.getElementById("submitCustomTitle");
+submitCustomTitle.addEventListener("click", () => {
+    chrome.storage.sync.set( {"title": customTitle.value} );
+    customTitle.value = "";
+})
+
 // Custom image
 let customImage = document.getElementById("customBackgroundImage");
 let submitBackgroundImage = document.getElementById("submitBackgroundImage");
 submitBackgroundImage.addEventListener("click", () => {
     chrome.storage.sync.set( {"backgroundImageUrl": customImage.value})
+    customImage.value = "";
 })
-
 customImage.addEventListener("keyup", (event) => {
     if(event.code == "Enter") {
         event.preventDefault();
