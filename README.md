@@ -6,10 +6,11 @@ Time Out is a beautiful and unobstructive site blocking extension designed to he
 
 ## Features
 
-- Unobstructive blocking
-- Fully customizable
-- Completely free
-- No data collection of any kind
+- Unobstructive Blocking
+- Fully Customizable
+- Tasks List
+- Completely Free
+- No Data Collection
 
 ### Non Obstructive Blocking
 
@@ -28,6 +29,12 @@ After all, Time Out was designed to help you manage your time!
 With Time Out, you can customize your block screen to your liking.
 
 Instead of just a plain blank screen telling you to go back to work, you can choose a background image, customize the title text, and more.
+
+### Tasks List
+
+With Time Out, you can add a custom tasks list to Time Out which displays on the block page.
+
+You can add a description to the task along with a redirect link so you can quickly navigate to unfinished work on the blocked page.
 
 ### Completely Free
 
