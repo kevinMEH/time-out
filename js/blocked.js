@@ -20,17 +20,17 @@ chrome.storage.sync.get("title", (result) => {
     customTitle.textContent = result.title;
 });
 
-// Alternative Links
-let alternativeLinksList = document.getElementById("alternativeLinksList");
-chrome.storage.sync.get("alternativeLinks", (result) => {
-    let list = result.alternativeLinks;
+// Task List
+let tasksList = document.getElementById("tasksList");
+chrome.storage.sync.get("tasksList", (result) => {
+    let list = result.tasksList;
     for(let link of list) {
         let paragraph = document.createElement("p");
         paragraph.appendChild(document.createTextNode("- " + link.description));
         paragraph.addEventListener("click", () => {
             location.href = link.url;
         });
-        alternativeLinksList.appendChild(paragraph);
+        tasksList.appendChild(paragraph);
     }
 });
 

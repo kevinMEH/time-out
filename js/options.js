@@ -1,6 +1,6 @@
 // On page load
 updateSiteList();
-updateLinkList();
+updateTasksList();
 
 // Preview blocked screen
 let previewButton = document.getElementById("previewButton");
@@ -23,86 +23,85 @@ customImage.addEventListener("keyup", (event) => {
     }
 })
 
-// Add alternative links
-let addAlternativeLinkUrl = document.getElementById("addAlternativeLinkUrl");
-let addAlternativeLinkDescription = document.getElementById("addAlternativeLinkDescription");
-let submitAlternativeLink = document.getElementById("submitAlternativeLink");
+// Add Tasks and Task List
+let addTaskUrl = document.getElementById("addTaskUrl");
+let addTaskDescription = document.getElementById("addTaskDescription");
+let submitTask = document.getElementById("submitTask");
 
-addAlternativeLinkUrl.addEventListener("keyup", (event) => {
-    if(event.code === "Enter" && addAlternativeLinkDescription.value != "" && addAlternativeLinkDescription.value != "") {
+addTaskUrl.addEventListener("keyup", (event) => {
+    enterEventChecker(event);
+})
+
+addTaskDescription.addEventListener("keyup", (event) => {
+    enterEventChecker(event);
+})
+
+function enterEventChecker(event) {
+    if(event.code === "Enter" && addTaskDescription.value != "" && addTaskDescription.value != "") {
         event.preventDefault();
-        addLink(addAlternativeLinkUrl.value.trim(), addAlternativeLinkDescription.value.trim());
-        addAlternativeLinkUrl.value = "";
-        addAlternativeLinkDescription.value = "";
+        addLink(addTaskUrl.value.trim(), addTaskDescription.value.trim());
+        addTaskUrl.value = "";
+        addTaskDescription.value = "";
     }
+}
+
+submitTask.addEventListener("click", () => {
+    addLink(addTaskUrl.value, addTaskDescription.value);
+    addTaskUrl.value = "";
+    addTaskDescription.value = "";
 })
 
-addAlternativeLinkDescription.addEventListener("keyup", (event) => {
-    if(event.code === "Enter" && addAlternativeLinkDescription.value != "" && addAlternativeLinkDescription.value != "") {
-        event.preventDefault();
-        addLink(addAlternativeLinkUrl.value.trim(), addAlternativeLinkDescription.value.trim());
-        addAlternativeLinkUrl.value = "";
-        addAlternativeLinkDescription.value = "";
-    }
-})
+let tasksList = document.getElementById("tasksList")
 
-submitAlternativeLink.addEventListener("click", () => {
-    addLink(addAlternativeLinkUrl.value, addAlternativeLinkDescription.value);
-    addAlternativeLinkUrl.value = "";
-    addAlternativeLinkDescription.value = "";
-})
-
-let alternativeLinksList = document.getElementById("alternativeLinksList")
-
-function updateLinkList() {
-    chrome.storage.sync.get("alternativeLinks", (result) => {
-        let alternativeLinks = result.alternativeLinks;
+function updateTasksList() {
+    chrome.storage.sync.get("tasksList", (result) => {
+        let list = result.tasksList;
         // Removes all childs
-        while(document.getElementById("alternativeLink") != null) {
-            alternativeLinksList.removeChild(document.getElementById("alternativeLink"));
+        while(document.getElementById("task") != null) {
+            tasksList.removeChild(document.getElementById("task"));
         }
         // Creates new lists
-        for(let alternativeLink of alternativeLinks) {
+        for(let task of list) {
             let link = document.createElement("a");
-            link.id = "alternativeLink";
-            link.href = alternativeLink.url;
-            link.innerHTML = alternativeLink.description;
+            link.id = "task";
+            link.href = task.url;
+            link.innerHTML = task.description;
             // Remove button
             let button = document.createElement("button");
-            button.id = "alternativeLink";
+            button.id = "task";
             button.textContent = "Remove";
             button.addEventListener("click", (event) => {
-                removeLink(alternativeLink);
+                removeLink(task);
                 event.preventDefault();
                 event.stopPropagation();
             });
             
             link.appendChild(button);
             link.appendChild(document.createElement("br"));
-            alternativeLinksList.appendChild(link);
+            tasksList.appendChild(link);
         }
         console.log("Updated Link List");
     });
 }
 
 function addLink(url, description) {
-    chrome.storage.sync.get("alternativeLinks", (result) => {
-        let alternativeLinks = result.alternativeLinks;
-        alternativeLinks.push({url: url, description: description});
-        chrome.storage.sync.set( {"alternativeLinks": alternativeLinks}, () => {
-            updateLinkList();
-            console.log("Added alternate link.");
+    chrome.storage.sync.get("tasksList", (result) => {
+        let list = result.tasksList;
+        list.push({url: url, description: description});
+        chrome.storage.sync.set( {"tasksList": list}, () => {
+            updateTasksList();
+            console.log("Added task.");
         });
     });
 }
 
 function removeLink(link) {
-    chrome.storage.sync.get("alternativeLinks", (result) => {
-        let alternativeLinks = result.alternativeLinks;
-        alternativeLinks.splice(alternativeLinks.indexOf(link), 1);
-        chrome.storage.sync.set( {"alternativeLinks": alternativeLinks}, () => {
-            updateLinkList();
-            console.log("Removed alternate link.");
+    chrome.storage.sync.get("tasksList", (result) => {
+        let list = result.tasksList;
+        list.splice(list.indexOf(link), 1);
+        chrome.storage.sync.set( {"tasksList": list}, () => {
+            updateTasksList();
+            console.log("Removed task.");
         });
     });
 }
