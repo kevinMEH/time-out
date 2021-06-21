@@ -2,7 +2,7 @@
 
 Time Out is a beautiful and unobstructive site blocking extension designed to help you manage your time.
 
-![Time Out Preview](assets/timeOutPreview.jpg)
+![Time Out Preview](.github/images/timeOutPreview.jpg)
 
 ## Features
 
