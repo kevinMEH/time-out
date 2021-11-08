@@ -18,9 +18,9 @@ Time Out strives to be as unobstructive as possible. Unlike other site blocking 
 
 For example, lets say that you are a programmer and you want to stop watching cat videos on YouTube.
 
-With other site blocking extensions, if you add YouTube to it's filter list, it would block out YouTube completely, even if you're trying to watch a YouTube video on something needed for your work, for example a tutorial on how to use this new framework. With other site blockers, you will have to disable the extension or remove YouTube from the list, thus wasting time and creating the problem that you might forget to turn the extension back on.
+With other site blocking extensions, if you add YouTube to it's filter list, it would block out YouTube completely. If you need to watch a YouTube video related to work, you will have to disable the extension or remove YouTube from the list, thus wasting time and creating the possibility that you will forget to re-enable the extension / add back the site in the future.
 
-With Time Out however, you can unblock any site with just the click of a button. Time Out serves as a way to remind you on what you should be doing, not to waste your time enabling and disabling the extension as you go.
+With Time Out, you can unblock any site with just the click of a button. Time Out serves as a way to remind you on what you should be doing, not to waste your time enabling and disabling the extension.
 
 After all, Time Out was designed to help you manage your time!
 
@@ -57,7 +57,5 @@ One of the key ways you can help out is migrating the extension from Chrome's Ma
 ## Credits
 
 [Default background image by Elizeu Dias on Unsplash.](https://unsplash.com/photos/RN6ts8IZ4_0)
-
-Thanks to people on Stack Overflow for answering questions.
 
 [Learn more about Google Chrome Extensions here.](https://developer.chrome.com/docs/extensions/)
