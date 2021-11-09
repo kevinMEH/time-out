@@ -5,7 +5,7 @@ chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.sync.set( {"originalUrl": "blocked.html"} );
     chrome.storage.sync.set( {"tasksList": [] } );
     // Photo by Elizeu Dias on Unsplash
-    chrome.storage.sync.set( {"backgroundImageUrl": "https://images.unsplash.com/photo-1519046904884-53103b34b206?&w=1920&q=100"} );
+    chrome.storage.sync.set( {"backgroundImageUrl": "https://images.unsplash.com/photo-1519046904884-53103b34b206"} );
     console.log("Initialized.");
 })
 

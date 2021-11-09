@@ -2,15 +2,17 @@
 let backgroundImage = document.getElementById("backgroundImage");
 chrome.storage.sync.get("backgroundImageUrl", (result) => {
     let style = document.createElement("style");
-    style.textContent =`
-        html {
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url(${result.backgroundImageUrl}) no-repeat center center fixed; 
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-    `
+    chrome.windows.getCurrent((window) => {
+        style.textContent =`
+            html {
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0)), url(${result.backgroundImageUrl + "?q=80&w=" + window.width}) no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        `
+    });
     document.head.append(style);
 });
 
