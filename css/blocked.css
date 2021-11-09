@@ -14,7 +14,7 @@ p {
     color: white;
     cursor: pointer;
     display: block;
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Noto Sans Mono', monospace;
     font-weight: 600;
     font-size: 21px;
     margin-block-start: 0.2em;
@@ -38,7 +38,7 @@ button {
     border:solid 2.7px white;
     border-radius: 8px;
     background: rgba(168, 166, 166, 0);
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Noto Sans Mono', monospace;
     font-weight: 600;
     font-size: 18px;
     color: white;
