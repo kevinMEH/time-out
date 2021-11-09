@@ -1,5 +1,5 @@
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.set( {"enabled": true } )
+    chrome.storage.sync.set( {"enabled": true } );
     chrome.storage.sync.set( {"blockedList": [] } );
     chrome.storage.sync.set( {"title": "Time out!"} );
     chrome.storage.sync.set( {"originalUrl": "blocked.html"} );
