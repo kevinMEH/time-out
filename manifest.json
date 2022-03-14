@@ -1,0 +1,11 @@
+{
+    "name": "Time Out v2",
+    "description": "",
+    "version": "2.0",
+    "manifest_version": 3,
+    "options_page": "options.html",
+    "action": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["storage", "scripting"]
+}
