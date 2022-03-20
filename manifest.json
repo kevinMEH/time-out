@@ -1,11 +1,11 @@
 {
-    "name": "Time Out v2",
-    "description": "",
+    "name": "Time Out",
+    "description": "The unobstructive site blocking extension.",
+    "author": "https://github.com/kevinMEH",
     "version": "2.0",
     "manifest_version": 3,
-    "options_page": "options.html",
-    "action": {
-        "service_worker": "background.js"
-    },
-    "permissions": ["storage", "scripting"]
+    
+    "options_page": "src/options.html",
+
+    "permissions": ["declarativeNetRequest"]
 }
