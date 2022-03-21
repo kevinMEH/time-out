@@ -1,17 +1,17 @@
 import { getRules, addSite, removeId, removeWorkers } from "../chrome.js";
 
-let input = document.getElementById("addSite") as HTMLInputElement;
+let addSiteInput = document.getElementById("addSite") as HTMLInputElement;
 
-input.addEventListener("keyup", event => {
-    if(event.key === "Enter" && input.value !== "") {
-        console.log("Adding site: " + input.value);
+addSiteInput.addEventListener("keyup", event => {
+    if(event.key === "Enter" && addSiteInput.value !== "") {
+        console.log("Adding site: " + addSiteInput.value);
         event.preventDefault();
 
-        let site = input.value;
+        let site = addSiteInput.value;
         site = site.trim();
         if(site) addSite(site);
 
-        input.value = "";
+        addSiteInput.value = "";
     }
 })
 
