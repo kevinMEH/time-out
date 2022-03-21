@@ -60,6 +60,7 @@ async function removeId(id: number) {
 // the service workers instead. Weird quirk with the
 // declarativeNetRequest API.
 async function removeWorkers(site: string) {
+    // Making site just the stub
     site = site.replace("https://", "");
     site = site.replace("www.", "");
 
@@ -69,9 +70,10 @@ async function removeWorkers(site: string) {
     let wwwsite = "https://www." + site;
     site = "https://" + site;
 
-    chrome.browsingData.removeServiceWorkers({
+    // According to the docs, the following should return a Promise.
+    await chrome.browsingData.removeServiceWorkers({
         origins: [ site, wwwsite ]
-    })
+    });
 }
 
 
