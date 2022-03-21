@@ -1,4 +1,4 @@
-import { getRules, addSite, removeId } from "../chrome.js";
+import { getRules, addSite, removeId, removeWorkers } from "../chrome.js";
 
 let input = document.getElementById("addSite") as HTMLInputElement;
 
@@ -31,3 +31,17 @@ reset.onclick = async () => {
     let rules = await getRules();
     for(let rule of rules) await removeId(rule.id);
 }
+
+let removeWorkersInput = document.getElementById("removeWorkers") as HTMLInputElement;
+
+removeWorkersInput.addEventListener("keyup", event => {
+    if(event.key === "Enter" && removeWorkersInput.value !== "") {
+        event.preventDefault();
+        
+        let site = removeWorkersInput.value;
+        site = site.trim();
+        if(site) removeWorkers(site);
+        
+        removeWorkersInput.value = "";
+    }
+})

@@ -54,5 +54,26 @@ async function removeId(id: number) {
 }
 
 
+// It is necessary to remove service workers for certain
+// websites such as YouTube or Twitter to actually block the
+// website, otherwise it will load up the website along with
+// the service workers instead. Weird quirk with the
+// declarativeNetRequest API.
+async function removeWorkers(site: string) {
+    site = site.replace("https://", "");
+    site = site.replace("www.", "");
 
-export { getRules, addSite, removeId };
+    // Removing the www. version as well because some sites
+    // like www.youtube.com are not cleared correctly by just
+    // clearing youtube.com. Just for user convenience.
+    let wwwsite = "https://www." + site;
+    site = "https://" + site;
+
+    chrome.browsingData.removeServiceWorkers({
+        origins: [ site, wwwsite ]
+    })
+}
+
+
+
+export { getRules, addSite, removeId, removeWorkers };

@@ -7,5 +7,5 @@
     
     "options_page": "src/options.html",
 
-    "permissions": ["declarativeNetRequest"]
+    "permissions": ["declarativeNetRequest", "browsingData"]
 }
