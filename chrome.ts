@@ -38,7 +38,7 @@ async function addSite(site: string) {
         id: nextId,
         priority: 1,
     }
-    updateRules("add", rule);
+    await updateRules("add", rule);
 }
 
 
