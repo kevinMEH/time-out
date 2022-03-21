@@ -9,7 +9,10 @@ addSiteInput.addEventListener("keyup", event => {
 
         let site = addSiteInput.value;
         site = site.trim();
-        if(site) addSite(site);
+        if(site) {
+            addSite(site);
+            removeWorkers(site);
+        }
 
         addSiteInput.value = "";
     }
