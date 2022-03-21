@@ -1,7 +1,7 @@
 import { getRules, addSite, removeId, removeWorkers } from "../chrome.js";
 
-let addSiteInput = document.getElementById("addSite") as HTMLInputElement;
 
+let addSiteInput = document.getElementById("addSite") as HTMLInputElement;
 addSiteInput.addEventListener("keyup", event => {
     if(event.key === "Enter" && addSiteInput.value !== "") {
         console.log("Adding site: " + addSiteInput.value);
@@ -19,24 +19,10 @@ addSiteInput.addEventListener("keyup", event => {
 })
 
 
-let debug = document.getElementById("debug") as HTMLButtonElement;
 
-debug.onclick = async () => {
-    let rules = await getRules();
-    for(let rule of rules) {
-        console.log(rule);
-    }
-}
 
-let reset = document.getElementById("reset") as HTMLButtonElement;
-
-reset.onclick = async () => {
-    let rules = await getRules();
-    for(let rule of rules) await removeId(rule.id);
-}
 
 let removeWorkersInput = document.getElementById("removeWorkers") as HTMLInputElement;
-
 removeWorkersInput.addEventListener("keyup", event => {
     if(event.key === "Enter" && removeWorkersInput.value !== "") {
         event.preventDefault();
@@ -48,3 +34,18 @@ removeWorkersInput.addEventListener("keyup", event => {
         removeWorkersInput.value = "";
     }
 })
+
+
+let debug = document.getElementById("debug") as HTMLButtonElement;
+debug.onclick = async () => {
+    let rules = await getRules();
+    for(let rule of rules) {
+        console.log(rule);
+    }
+}
+
+let reset = document.getElementById("reset") as HTMLButtonElement;
+reset.onclick = async () => {
+    let rules = await getRules();
+    for(let rule of rules) await removeId(rule.id);
+}
