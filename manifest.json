@@ -7,5 +7,6 @@
     
     "options_page": "src/options.html",
 
-    "permissions": ["declarativeNetRequest", "browsingData"]
+    "permissions": ["declarativeNetRequest", "browsingData"],
+    "host_permissions": ["*://*/*"]
 }

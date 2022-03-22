@@ -28,7 +28,8 @@ async function addSite(site: string) {
     let nextId = await getNextId();
     let rule: request.Rule = {
         action: {
-            type: request.RuleActionType.BLOCK
+            type: request.RuleActionType.REDIRECT,
+            redirect: { extensionPath: "/src/blocked.html" }
         },
         condition: {
             urlFilter: site,
