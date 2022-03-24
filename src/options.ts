@@ -1,4 +1,5 @@
-import { getRules, addSite, removeId, removeWorkers } from "../chrome.js";
+import { getRules, addSite, removeId, resetSessionRules, removeWorkers } from "../chrome.js";
+
 
 
 let addSiteInput = document.getElementById("addSite") as HTMLInputElement;
@@ -55,10 +56,17 @@ removeWorkersInput.addEventListener("keyup", async event => {
 })
 
 
+// TODO: Debug purposes only. Remove during final build.
 let debug = document.getElementById("debug") as HTMLButtonElement;
 debug.onclick = async () => {
+    console.log("Dynamic Rules");
     let rules = await getRules();
     for(let rule of rules) {
+        console.log(rule);
+    }
+    console.log("Session Rules");
+    let sessionRules = await getRules("session");
+    for(let rule of sessionRules) {
         console.log(rule);
     }
 }
@@ -68,4 +76,9 @@ reset.onclick = async () => {
     let rules = await getRules();
     for(let rule of rules) await removeId(rule.id);
     await updateList();
+}
+
+let resetSessionRulesButton = document.getElementById("resetSessionRules") as HTMLButtonElement;
+resetSessionRulesButton.onclick = async () => {
+    resetSessionRules();
 }
