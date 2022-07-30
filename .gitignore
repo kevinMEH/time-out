@@ -1,1 +1,5 @@
-*.afphoto
+.DS_Store
+node_modules
+backup.ts
+build/
+test/
